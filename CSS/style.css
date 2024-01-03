@@ -1,18 +1,27 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+/* ---------- general styling ---------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ---------- navbar styling ---------- */
 
 .navbar {
-  width: 100%;
-  background-color: #850928;
-  overflow: auto;
+    width: 100%;
+    background-color: #850928;
+    overflow: auto;
 }
 
 .navbar a {
-  float: right;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  margin-right: 10px;
+    float: right;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin-right: 10px;
 }
 
 .navbar #logo {
@@ -20,12 +29,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
     padding: 5px;
     float: left;
 }
+
 .navbar a:hover {
-  background-color:#440313;
+    background-color: #440313;
 }
 
 .active {
-  background-color: #440313;
+    background-color: #440313;
 }
 
 /* @media screen and (max-width: 500px) {
@@ -34,3 +44,98 @@ body {font-family: Arial, Helvetica, sans-serif;}
     display: block;
   }
 } */
+
+/* ---------- form input styling ---------- */
+form {
+    display: grid;
+    place-items: center;
+    margin: 50px;
+}
+
+.inputs {
+    min-width: 350px;
+    position: relative;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0.675em 6em 0.675em 1em;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+}
+
+.hours_select::before,
+.hours_select::after,
+.sem_select::before,
+.sem_select::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+}
+
+.year_input input[type="text"] {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
+button {
+    padding: 10px 15px;
+    min-width: 350px;
+    background-color: #850928;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #850928;
+}
+
+button:active {
+    background-color: #440313;
+}
+
+/* ---------- schedule table styling ---------- */
+
+#table-container {
+    margin: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 10px;
+    width: 100%;
+}
+
+th,
+td.non-empty {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.header_cell {
+    background-color: #440313;
+    color: white;
+}
+
+td.empty {
+    display: none;
+    border: 1px solid rgb(255, 255, 255);
+}

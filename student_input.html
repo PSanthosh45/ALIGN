@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Align - Student</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS\style.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="active" href="student_input.html"><i class="fa fa-fw fa-book"></i> Student</a>
+        <a href="admin_input.html"><i class="fa fa-fw fa-user"></i> Admin</a>
+        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
+    </div>
+
+    <form name="inputs_form" method="get">
+        <div class="inputs">
+
+            <!-- get semester variable -->
+            <div class="sem_select" style="padding-bottom: 30px;">
+                <label for="sem">Choose your desired starting semester:</label>
+                <select id="sem" name="sem" required>
+                    <option value="" disabled selected> </option>
+                    <option value="F">Fall Semester</option>
+                    <option value="S">Spring Semester</option>
+                </select>
+            </div>
+
+            <!-- get year variable -->
+            <div class="year_input" style="padding-bottom: 30px;">
+                <label for="year">Enter Starting Year:</label>
+                <input type="text" id="year" name="year" pattern="\d{4}" placeholder="Ex: 0000" required>
+                <span class="error-message" id="yearError"></span>
+            </div>
+        </div>
+
+        <!-- get hours variable -->
+        <div class="hours_select" style="padding-bottom: 30px;">
+            <label for="hours">Choose your desired workload:</label>
+            <select id="hours" name="hours" required>
+                <option value="" disabled selected> </option>
+                <option value="9">9 credits per semester</option>
+                <option value="12">12 credits per semester</option>
+                <option value="15">15 credits per semester</option>
+                <option value="18">18 credits per semester</option>
+            </select>
+        </div>
+
+        <div class="generate_button">
+            <button onclick="validate()" type="button" id="generateButton">Generate!</button>
+        </div>
+
+    </form>
+
+    <!-- form validation script -->
+    <script>
+        function validate() {
+            // Get inputs
+            var semInput = document.getElementById("sem");
+            var yearInput = document.getElementById("year");
+            var yearError = document.getElementById("yearError");
+            if (!yearInput.checkValidity()) {
+                // If the input is not valid, show an error message
+                yearError.textContent = "Please enter a valid 4-digit year.";
+                yearError.style.display = "block";
+                return;
+            } else {
+                // If the input is valid, clear the error message
+                yearError.textContent = "";
+                yearError.style.display = "none";
+                generate();
+            }
+        }
+
+        function generate() {
+            // //grab variables
+            // const semValue = document.getElementById('sem').value;
+            // const yearValue = document.getElementById('year').value;
+            // const hoursValue = document.getElementById('hours').value;
+
+            // //store locally
+            // localStorage.setItem('semester', semValue);
+            // localStorage.setItem('year', yearValue);
+            // localStorage.setItem('hours', hoursValue);
+
+            // Redirect to the target page
+            window.location.href = 'schedule_student.html';
+        }
+    </script>
+</body>
+
+</html>
