@@ -111,10 +111,22 @@ button:active {
     background-color: #440313;
 }
 
+.edit_button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
 /* ---------- schedule table styling ---------- */
 
-#table-container {
+#table-container,
+#csvtable {
     margin: 20px;
+    padding-bottom: 60px;
 }
 
 table {
@@ -124,7 +136,7 @@ table {
 }
 
 th,
-td.non-empty {
+td.non-empty, #csvtable td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;

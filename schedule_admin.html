@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Schedule</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS\style.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="student_input.html"><i class="fa fa-fw fa-book"></i> Student</a>
+        <a href="admin_input.html"><i class="fa fa-fw fa-user"></i> Admin</a>
+        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
+    </div>
+
+    <!-- <p id="displaySemester"></p>
+    <p id="displayYear"></p>
+    <p id="displayHours"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const semValue = localStorage.getItem('semester');
+            const yearValue = localStorage.getItem('year');
+            const hourValue = localStorage.getItem('hours');
+
+            document.getElementById('displaySemester').textContent = `Semester Value: ${semValue}`;
+            document.getElementById('displayYear').textContent = `Year Value: ${yearValue}`;
+            document.getElementById('displayHours').textContent = `Hour Value: ${hourValue}`;
+
+        });
+    </script> -->
+
+    <div id="table-container"></div>
+    <script src="JS\schedule_admin.js"></script>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const source = sessionStorage.getItem('sourcePage');
+            if (source === 'admin') {
+                const scriptA = document.createElement('script');
+                scriptA.src = 'JS\\schedule_admin.js';
+                document.body.appendChild(scriptA);
+            } else if (source === 'student') {
+                const scriptS = document.createElement('script');
+                scriptS.src = 'JS\\schedule_student.js';
+                document.body.appendChild(scriptS);
+            }
+        });
+    </script> -->
+
+    <div class="edit_button">
+        <button onclick="nav()" type="button" id="editButton">Edit Course Priority</button>
+    </div>
+
+    <script>
+        function nav() {
+            window.location.href = 'display.html';
+        }
+    </script>
+
+</body>
+
+</html>

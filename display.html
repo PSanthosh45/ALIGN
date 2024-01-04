@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Editor</title>
+    <link rel="stylesheet" href="CSS\reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS\style.css">
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #440313;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="student_input.html"><i class="fa fa-fw fa-book"></i> Student</a>
+        <a href="admin_input.html"><i class="fa fa-fw fa-user"></i> Admin</a>
+        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
+    </div>
+
+    <table id="csvTable" contenteditable="true">
+        <!-- Table content will be added dynamically using JavaScript -->
+    </table>
+
+    <script src="JS\display.js"></script>
+</body>
+
+</html>
