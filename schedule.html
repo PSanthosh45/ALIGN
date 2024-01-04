@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Student Schedule</title>
+    <title>Schedule</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +40,20 @@
 
     <div id="table-container"></div>
 
-    <script src="JS\schedule_view.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const source = sessionStorage.getItem('sourcePage');
+            if (source === 'admin') {
+                const scriptA = document.createElement('script');
+                scriptA.src = 'JS\\schedule_admin.js';
+                document.body.appendChild(scriptA);
+            } else if (source === 'student') {
+                const scriptS = document.createElement('script');
+                scriptS.src = 'JS\\schedule_student.js';
+                document.body.appendChild(scriptS);
+            }
+        });
+    </script>
 </body>
 
 </html>

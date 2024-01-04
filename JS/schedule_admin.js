@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch the CSV file
-    fetch('output_student.csv')
+    fetch('Data\\output_admin.csv')
         .then(response => response.text())
         .then(csvData => {
             // Split the CSV data into rows

@@ -21,7 +21,69 @@
         <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
     </div>
 
-    <h1>welcome to ALIGN Admin</h1>
+    <form name="inputs_form" method="get">
+        <div class="inputs">
+
+            <!-- get semester variable -->
+            <div class="sem_select" style="padding-bottom: 30px;">
+                <label for="sem">Choose your desired starting semester:</label>
+                <select id="sem" name="sem" required>
+                    <option value="" disabled selected> </option>
+                    <option value="F">Fall Semester</option>
+                    <option value="S">Spring Semester</option>
+                </select>
+            </div>
+
+            <!-- get year variable -->
+            <div class="year_input" style="padding-bottom: 30px;">
+                <label for="year">Enter Starting Year:</label>
+                <input type="text" id="year" name="year" pattern="\d{4}" placeholder="Ex: 0000" required>
+                <span class="error-message" id="yearError"></span>
+            </div>
+        </div>
+
+        <div class="generate_button">
+            <button onclick="validate()" type="button" id="generateButton">Generate!</button>
+        </div>
+
+    </form>
+
+    <!-- form validation script -->
+    <script>
+        function validate() {
+            // Get inputs
+            var semInput = document.getElementById("sem");
+            var yearInput = document.getElementById("year");
+            var yearError = document.getElementById("yearError");
+            if (!yearInput.checkValidity()) {
+                // If the input is not valid, show an error message
+                yearError.textContent = "Please enter a valid 4-digit year.";
+                yearError.style.display = "block";
+                return;
+            } else {
+                // If the input is valid, clear the error message
+                yearError.textContent = "";
+                yearError.style.display = "none";
+                generate();
+            }
+        }
+
+        function generate() {
+            // //grab variables
+            // const semValue = document.getElementById('sem').value;
+            // const yearValue = document.getElementById('year').value;
+
+            // //store locally
+            // localStorage.setItem('semester', semValue);
+            // localStorage.setItem('year', yearValue);
+
+            //for schedule navigation
+            sessionStorage.setItem('sourcePage', 'admin');
+
+            // Redirect to the target page
+            window.location.href = 'schedule.html';
+        }
+    </script>
 </body>
 
 </html>
