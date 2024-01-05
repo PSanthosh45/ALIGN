@@ -14,14 +14,110 @@
 </head>
 
 <body>
+    <div class="twubar">
+        <img src="CSS\TWU_full.png" alt="TWU Logo" id="logo_full">
+    </div>
     <div class="navbar">
         <a href="student_input.html"><i class="fa fa-fw fa-book"></i> Student</a>
         <a href="admin_input.html"><i class="fa fa-fw fa-user"></i> Admin</a>
         <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
-        <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
     </div>
 
-    <h1>welcome to ALIGN</h1>
+    <div id="welcome">
+        <h1>Welcome to ALIGN</h1>
+        <h2>Academic Lifecycle Integration and Generation Nexus</h2>
+        <p>
+            Discover the power of seamless academic planning with ALIGN, an all-encompassing platform that caters to
+            both students and administrators.
+            Whether you're charting your academic journey or strategically planning departmental resources,
+            ALIGN is your key to a well-organized and efficient educational experience.
+        </p>
+    </div>
+
+    <div id="features">
+        <div class="desc">
+            <h3>For Administrators: Streamline Planning, Optimize Resources</h3>
+            <ol>
+                <li><p>Strategic Administrative Planning</p>
+                    Specify the starting semester and year for comprehensive departmental planning.</li>
+                <li><p>Rotating Schedule Generation</p>
+                    Receive an 8-semester rotating schedule, prioritizing courses based on departmental goals.</li>
+                <li><p>Efficient Resource Allocation</p>
+                    ALIGN ensures optimal resource allocation by strategically planning future course schedules.</li>
+            </ol>
+        </div>
+       
+        <form class="NavButton" action="admin_input.html" method="get">
+            <button type="submit">Try ALIGN for Adminstrators!</button>
+        </form>
+
+
+        <div class="desc">
+            <h3>For Students: Tailor Your Academic Journey</h3>
+            <ol>
+                <li><p>Intelligent Recommendations</p>
+                    ALIGN generates a personalized Computer Science degree plan, factoring in likely course availability.</li>
+                <li><p>Workload Preferences</p>
+                    Define your preferred credit hours per semester for a personalized pace.</li>
+                <li><p>Starting Semester Options</p>
+                    Choose your beginning semester (Fall or Spring) and academic year.</li>
+            </ol>
+        </div>
+        
+        <form class="NavButton" action="student_input.html" method="get">
+            <button type="submit">Try ALIGN for Students!</button>
+        </form>
+
+    </div>
+
+    <!-- <div class="courseView">
+        <div class="course-container">
+            <div class="course-tile course-description-container" onclick="showDescription('desc1')">
+                <h2>Course ID: 101</h2>
+                <h3>Course Name 1</h3>
+                <p>Course description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="course-description" id="desc1">
+                    <p>Full course description for Course 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+
+            <div class="course-tile course-description-container" onclick="showDescription('desc2')">
+                <h2>Course ID: 102</h2>
+                <h3>Course Name 2</h3>
+                <p>Course description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="course-description" id="desc2">
+                    <p>Full course description for Course 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay" onclick="hideDescription()"></div>
+    </div> -->
+
+    <script>
+        function showDescription(descriptionId) {
+            var description = document.getElementById(descriptionId);
+            var overlay = document.getElementById('overlay');
+            description.style.display = 'block';
+            overlay.classList.add('active');
+        }
+
+        function hideDescription() {
+            var descriptions = document.getElementsByClassName('course-description');
+            var overlay = document.getElementById('overlay');
+
+            for (var i = 0; i < descriptions.length; i++) {
+                descriptions[i].style.display = 'none';
+            }
+
+            overlay.classList.remove('active');
+        }
+    </script>
+
 </body>
+
+<footer>
+    <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
+    <p>WebApp made by Parvathy Santhosh</p>
+</footer>
 
 </html>
