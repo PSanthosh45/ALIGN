@@ -2,32 +2,31 @@
 <html lang="en">
 
 <head>
+    <title>Course Data Editor</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Data Editor</title>
+
     <link rel="stylesheet" href="CSS\reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS\style.css">
 
     <style>
-        h1 {
-            text-align: center;
-        }
-
         table {
             border-collapse: collapse;
-            width: 100%;
+            margin: 20px;
+            padding-bottom: 60px;
+            width: 95%;
         }
 
         th,
         td {
-            border: 1px solid #dddddd;
-            text-align: left;
+            border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
         }
 
-        /* This styling wont work?? */
-        thead th {
+        th {
             background-color: #440313;
             color: white;
         }
@@ -38,23 +37,81 @@
     <div class="twubar">
         <img src="CSS\TWU_full.png" alt="TWU Logo" id="logo_full">
     </div>
-
     <div class="navbar">
         <a href="student_input.html"><i class="fa fa-fw fa-book"></i> Student</a>
         <a href="admin_input.html"><i class="fa fa-fw fa-user"></i> Admin</a>
         <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
     </div>
 
-    <table id="csvTable" contenteditable="true">
+    <div class="header" style="text-align: center;">
+        <h1>Course Data Editor</h1>
+        <p style="padding-top: 20px; font-style: italic;">You may edit any of the cells in this table to change the priority of a course:</p>
+    </div>
+
+    <table id="csvTable">
         <!-- Table content will be added dynamically using JavaScript -->
     </table>
 
-    <script src="JS\display.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch and display CSV data
+            fetch('Data\\coursedata.csv')
+                .then(response => response.text())
+                .then(csvData => {
+                    const rows = csvData.split('\n');
+                    const table = document.getElementById('csvTable');
 
-<footer>
-    <img src="CSS\TWU.png" alt="TWU Logo" id="logo">
-    <p>WebApp made by Parvathy Santhosh</p>
-</footer>
+                    // Create header row
+                    const headerRow = document.createElement('tr');
+                    const headers = rows[0].split(',');
+                    headers.forEach(headerText => {
+                        const th = document.createElement('th');
+                        th.textContent = headerText;
+                        headerRow.appendChild(th);
+                    });
+                    table.appendChild(headerRow);
+
+                    // Create data rows
+                    for (let i = 1; i < rows.length; i++) {
+                        const dataRow = document.createElement('tr');
+                        const rowData = rows[i].split(',');
+
+                        for (let j = 0; j < headers.length; j++) {
+                            const td = document.createElement('td');
+                            td.contentEditable = true;
+                            td.textContent = rowData[j];
+                            dataRow.appendChild(td);
+                        }
+
+                        table.appendChild(dataRow);
+                    }
+                });
+
+            // Save changes to the server (using PHP in this example)
+            table.addEventListener('input', function (event) {
+                const cell = event.target;
+                const rowIndex = cell.parentNode.rowIndex - 1; // Subtract 1 for the header row
+                const colIndex = cell.cellIndex;
+
+                fetch('PHP\\update-csv.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        rowIndex,
+                        colIndex,
+                        value: cell.textContent.trim(),
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Updated:', data);
+                    });
+            });
+        });
+    </script>
+
+</body>
 
 </html>

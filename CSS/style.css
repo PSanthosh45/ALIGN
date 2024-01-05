@@ -1,17 +1,19 @@
 /* ---------- general styling ---------- */
 
+* {
+    font-family: Georgia, serif;
+}
+
 body {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* ---------- navbar styling ---------- */
 #logo_full{
     float: left;
-    height: 80px;
+    height: 50px;
     padding: 20px;
 } 
 
@@ -26,7 +28,8 @@ body {
     padding: 12px;
     color: white;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    font-weight: bold;
     margin-right: 10px;
 }
 
@@ -55,13 +58,12 @@ body {
 .header{
     background-color: #850928b8;
     color: white;
-    margin-bottom: 10px;
     padding: 30px;
     font-size: 20px;
 }
 
 .header h1{
-    font-size: 40px;
+    font-size: 50px;
     padding-bottom: 10px;
     font-weight: bold;
 }
@@ -79,7 +81,7 @@ body {
 }
 
 .desc{
-    margin-top: 10px;
+    margin-top: 20px;
     padding-right: 30px;
     padding-left: 30px;
     padding-bottom: 20px;
@@ -91,7 +93,7 @@ body {
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 25px;
+    font-size: 35px;
 }
 
 ol, li{
@@ -108,7 +110,6 @@ ol p{
     display: inline;
     padding-right: 30px;
     padding-left: 30px;
-    padding-bottom: 20px;
     float: right;
 }
 
@@ -231,6 +232,8 @@ button {
     min-width: 350px;
     background-color: #850928;
     color: #fff;
+    font-size: 20px;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     text-align: center;
@@ -257,8 +260,7 @@ button:active {
 
 /* ---------- schedule table styling ---------- */
 
-#table-container,
-#csvtable {
+#table-container{
     margin: 20px;
     padding-bottom: 60px;
 }
@@ -270,7 +272,7 @@ table {
 }
 
 th,
-td.non-empty, #csvtable td {
+td.non-empty{
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
@@ -292,8 +294,6 @@ footer {
     padding: 50px;
     position: relative;
     bottom: 0;
-    width: 100%;
-
 }
 
 footer img {
