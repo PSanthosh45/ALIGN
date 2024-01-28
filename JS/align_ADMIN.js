@@ -7,7 +7,7 @@ const path = require('path');
 const scriptDirectory = __dirname;
 const dataFolderPath = path.join(scriptDirectory, '..', 'Data');
 const relativeCourseFilePath = 'coursedata.csv';
-const relativeOutputFilePath = 'output.csv';
+const relativeOutputFilePath = 'output_admin.csv';
 const DataFilePath = path.join(dataFolderPath, relativeCourseFilePath);
 const OutputFilePath = path.join(dataFolderPath, relativeOutputFilePath);
 

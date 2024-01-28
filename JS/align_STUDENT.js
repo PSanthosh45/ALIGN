@@ -50,7 +50,7 @@ const ReqsFilePath = path.join(dataFolderPath, relativeReqsFilePath);
 // const relativeElectFilePath = 'electives.csv';
 // const ElectFilePath = path.join(dataFolderPath, relativeElectFilePath);
 
-const relativeOutputFilePath = 'output.csv';
+const relativeOutputFilePath = 'output_student.csv';
 const OutputFilePath = path.join(dataFolderPath, relativeOutputFilePath);
 
 
@@ -61,8 +61,8 @@ sems = [];
 schedule = [];
 
 var sem = "F";
-var year = 2021;
-const hours = 15;
+var year = 2020;
+const hours = 12;
 
 const num_sems = Math.ceil(120 / hours); //Math.ceil will round up for the number of semesters
 const credits = Math.ceil(hours / 3);
