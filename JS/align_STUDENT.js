@@ -216,6 +216,9 @@ for (r = 1; r < reqs.length; r++) {
         case 4:
             prev3 = addCourse(reqs[r], prev2);
             break;
+        case 5:
+            prev4 = addCourse(reqs[r], prev3);
+            break;
     }
 }
 
